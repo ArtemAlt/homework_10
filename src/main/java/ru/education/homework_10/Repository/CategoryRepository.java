@@ -6,4 +6,5 @@ import ru.education.homework_10.models.Entity.ProductCategory;
 
 @Repository
 public interface CategoryRepository extends JpaRepository<ProductCategory,Long> {
+    ProductCategory findByNameLike(String name);
 }
