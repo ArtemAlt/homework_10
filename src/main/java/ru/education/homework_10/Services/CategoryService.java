@@ -20,4 +20,7 @@ public class CategoryService {
     public List<ProductCategoryDTO> findAll(){
         return repository.findAll().stream().map(c->mapper.toDTO(c)).collect(Collectors.toList());
     }
+    public ProductCategory findByName (String name){
+        return repository.findByNameLike(name);
+    }
 }

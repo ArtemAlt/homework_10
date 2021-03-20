@@ -5,17 +5,11 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.stereotype.Repository;
+import ru.education.homework_10.models.Entity.Customer;
 import ru.education.homework_10.models.Entity.Product;
 
 
-
-
 @Repository
-public interface ProductRepository extends JpaRepository<Product,Long>, JpaSpecificationExecutor<Product> {
-
-    Page<Product> findAllByProductCategoryLike(Specification<Product> spec, PageRequest of);
-    Product findByName(String name);
-
-
-
+public interface CustomerRepository extends JpaRepository<Customer,Long> {
+    Customer findByName(String name);
 }
