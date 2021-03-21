@@ -4,9 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import ru.education.homework_10.models.Entity.ProductCategory;
 
-import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ProductDTO {
