@@ -36,16 +36,15 @@ public class Orders {
     private List<Product> productList;
 
 
-    public Orders(List<Cart> carts,Customer customer) {
+    public Orders(List<Cart> carts, Customer customer) {
         this.setCurrentCustomer(customer);
-        log.info("Constructor order customer name " +this.getCurrentCustomer().getName());
+        log.info("Constructor order customer name " + this.getCurrentCustomer().getName());
         List<Product> cartProductList = carts.stream().map(Cart::getProduct).collect(Collectors.toList());
         log.info("Constructor order card products list " + cartProductList.size());
         this.setProductList(cartProductList);
         log.info("Constructor created -" + this.toString());
     }
 
-    //todo - скорее всего я что-то не так понял
     public String getCustomerName() {
         return this.currentCustomer.getName();
     }

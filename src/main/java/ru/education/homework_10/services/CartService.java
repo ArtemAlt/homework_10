@@ -11,16 +11,19 @@ import ru.education.homework_10.models.entity.Customer;
 
 import java.util.List;
 import java.util.stream.Collectors;
+
 @Slf4j
 @Service
 public class CartService {
-    //todo - слишком много всег в одном месте
     @Autowired
     CartRepository repository;
+
     @Autowired
     CartMapper mapper;
+
     @Autowired
     CustomerService customerService;
+
     @Autowired
     ProductService productService;
 
@@ -33,20 +36,19 @@ public class CartService {
 
     public List<Cart> getCustomerCarts(String name) {
         Customer customer = customerService.findCustomer(name);
-        log.info("NEW ORDER REQUEST customer name"+customer.getName());
+        log.info("NEW ORDER REQUEST customer name" + customer.getName());
         return repository.findAllByCustomer(customer);
     }
 
     public List<CartDTO> showCustomerCarts(String name) {
         return repository.findAllByCustomer(customerService.findCustomer(name))
-                .stream().map(cart ->mapper.toDTO(cart))
+                .stream().map(cart -> mapper.toDTO(cart))
                 .collect(Collectors.toList());
     }
 
-
     public void deleteCatrByCustomer(Customer customer) {
         List<Cart> batch = repository.findAllByCustomer(customer);
-        log.info("Delete cart by customer name "+batch.toString()+" size "+ batch.size());
+        log.info("Delete cart by customer name " + batch.toString() + " size " + batch.size());
         repository.deleteInBatch(batch);
     }
 }

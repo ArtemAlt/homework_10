@@ -15,13 +15,15 @@ public class AwesomeExceptionHandler extends ResponseEntityExceptionHandler {
     protected ResponseEntity<AwesomeException> handleThereIsNoSuchUserException() {
         return new ResponseEntity<>(new AwesomeException("There is no such product"), HttpStatus.NOT_FOUND);
     }
+
     @ExceptionHandler(ThereIsNoValuesInResponse.class)
-    protected ResponseEntity<AwesomeException> handleThereIsNoValuesInResponse(){
-        return new ResponseEntity<>(new AwesomeException("There is no values for such request"),HttpStatus.NOT_FOUND);
+    protected ResponseEntity<AwesomeException> handleThereIsNoValuesInResponse() {
+        return new ResponseEntity<>(new AwesomeException("There is no values for such request"), HttpStatus.NOT_FOUND);
     }
+
     @ExceptionHandler(InvalidToken.class)
-    protected ResponseEntity<AwesomeException> handleInvalidToken(){
-        return new ResponseEntity<>(new AwesomeException("Invalid token"),HttpStatus.I_AM_A_TEAPOT); //todo-пределать потом
+    protected ResponseEntity<AwesomeException> handleInvalidToken() {
+        return new ResponseEntity<>(new AwesomeException("Invalid token"), HttpStatus.UNAUTHORIZED);
     }
 
 

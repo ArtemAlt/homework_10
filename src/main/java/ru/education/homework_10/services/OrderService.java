@@ -26,12 +26,8 @@ public class OrderService {
 
     public void saveNewOrder(String name){
         List<Cart> carts= cartService.getCustomerCarts(name);
-        Customer customer = customerService.findCustomer(name);//todo - реализация не очень, можно у входных карт забрать
+        Customer customer = customerService.findCustomer(name);
         log.info("Order service request new order customer "+ customer.getName());
-
-//        order.createOrderFromCards(carts,customer);
-//        log.info("Order details - "+mapper.toDTO(order));
-//        log.info("Order before save - "+ order.toString());
         repository.save(new Orders(carts,customer));
         cartService.deleteCatrByCustomer(customer);
     }

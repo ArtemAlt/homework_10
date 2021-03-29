@@ -28,7 +28,7 @@ public class ProductCategory {
     private List<Product> productList;
 
     public List<String> getProductListName() {
-        return this.productList.stream().map(p -> p.getName()).collect(Collectors.toList());//todo- это должно делаться автоматически
+        return this.productList.stream().map(p -> p.getName()).collect(Collectors.toList());
     }
 
 }

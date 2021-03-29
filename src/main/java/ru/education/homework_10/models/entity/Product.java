@@ -37,7 +37,7 @@ public class Product {
     private List<Orders> ordersList;
 
     public String getProductCategoryName() {
-        return this.getProductCategory().getName();//todo - мне кажется что это должно быть иначе
+        return this.getProductCategory().getName();
     }
 
     @Override
